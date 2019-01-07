@@ -54,7 +54,7 @@ _isSelected = true;
             <string>/// Change Controller to Draw Barbwire on Press
 
 event_inherited();
-LevelEditorController2._currentTool = LevelEditorController2.DRAWBARBWIRE;
+Controller._currentTool = Controller.DRAWBARBWIRE;
 </string>
           </argument>
         </arguments>

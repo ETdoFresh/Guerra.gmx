@@ -3,6 +3,25 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="1" name="datafiles">
+    <datafile>
+      <name>Readme.txt</name>
+      <exists>-1</exists>
+      <size>0</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>Readme.txt</filename>
+    </datafile>
+  </datafiles>
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
@@ -11,15 +30,31 @@
     <sprite>sprites\GunSprite</sprite>
     <sprite>sprites\BulletSprite</sprite>
     <sprite>sprites\FlagSprite</sprite>
-    <sprite>sprites\CircleButtonSprite</sprite>
     <sprite>sprites\RoundRectButtonOverlaySprite</sprite>
     <sprite>sprites\RoundRectButtonSprite</sprite>
-    <sprite>sprites\CircleButtonOverlaySprites</sprite>
     <sprite>sprites\RiverSprite</sprite>
     <sprite>sprites\BridgeSprite</sprite>
     <sprite>sprites\CursorSprite</sprite>
     <sprite>sprites\MarkDotSprite</sprite>
     <sprite>sprites\FinishRegionSprite</sprite>
+    <sprite>sprites\LogoSprite</sprite>
+    <sprite>sprites\HoleSprite</sprite>
+    <sprite>sprites\PaperBorderSprite</sprite>
+    <sprite>sprites\TitleSprite</sprite>
+    <sprite>sprites\LearnToPlayDigitallySprite</sprite>
+    <sprite>sprites\PlayerVsPlayerSprite</sprite>
+    <sprite>sprites\LearnToPlayPaperSprite</sprite>
+    <sprite>sprites\VersionSprite</sprite>
+    <sprite>sprites\ExitGameSprite</sprite>
+    <sprites name="Tutorial">
+      <sprite>sprites\FirstMapEdit</sprite>
+      <sprite>sprites\DrawBarbwireSpirte</sprite>
+      <sprite>sprites\SelectMinesSprite</sprite>
+      <sprite>sprites\PlaceMineSprite</sprite>
+      <sprite>sprites\PlaceGunSprite</sprite>
+      <sprite>sprites\PlaceFlagSprite</sprite>
+      <sprite>sprites\FinishFlagSprite</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\PaperBG</background>
@@ -29,48 +64,71 @@
     <font>fonts\PopUpMessageFont</font>
   </fonts>
   <objects name="objects">
-    <objects name="ArchivedObjects">
-      <object>objects\LevelEditorController</object>
-      <object>objects\ButtonParentObject</object>
-      <object>objects\BarbwireButtonObject</object>
-      <object>objects\MineButtonObject</object>
-      <object>objects\GunButtonObject</object>
-      <object>objects\FlagButtonObject</object>
-      <object>objects\UndoButtonObject</object>
-      <object>objects\RedoButtonObject</object>
-      <object>objects\FinishButtonObject</object>
+    <objects name="Buttons">
+      <object>objects\ButtonBase</object>
+      <object>objects\BarbwireButton</object>
+      <object>objects\MineButton</object>
+      <object>objects\GunButton</object>
+      <object>objects\FlagButton</object>
+      <object>objects\UndoButton</object>
+      <object>objects\RedoButton</object>
+      <object>objects\EraserButton</object>
+      <object>objects\FinishButton</object>
+      <object>objects\SettingsButton</object>
+      <object>objects\ExitButton</object>
     </objects>
-    <object>objects\HurtfulObject</object>
-    <object>objects\BarbwireObject</object>
-    <object>objects\MineObject</object>
-    <object>objects\GunObject</object>
-    <object>objects\BulletObject</object>
+    <objects name="Controllers">
+      <object>objects\LevelEditorController2</object>
+      <object>objects\TutorialController</object>
+      <object>objects\TransitionObject</object>
+    </objects>
+    <objects name="Obstacles">
+      <object>objects\HurtfulObject</object>
+      <object>objects\BarbwireObject</object>
+      <object>objects\MineObject</object>
+      <object>objects\GunObject</object>
+      <object>objects\BulletObject</object>
+      <object>objects\RiverObject</object>
+      <object>objects\HoleObject</object>
+      <object>objects\PaperBorderObject</object>
+      <object>objects\CannotDrawObject</object>
+    </objects>
+    <objects name="Menu">
+      <object>objects\TitleObject</object>
+      <object>objects\LearnToPlayDigitally</object>
+      <object>objects\PlayerVsPlayerObject</object>
+      <object>objects\LearnToPlayPaper</object>
+      <object>objects\VersionObject</object>
+      <object>objects\ExitGameObject</object>
+    </objects>
     <object>objects\FlagObject</object>
     <object>objects\MarkDotObject</object>
     <object>objects\PopUpMessageObject</object>
-    <object>objects\RiverObject</object>
     <object>objects\BridgeObject</object>
     <object>objects\CursorObject</object>
     <object>objects\PathLineObject</object>
     <object>objects\FinishRegion</object>
-    <object>objects\LevelEditorController2</object>
-    <object>objects\ButtonBase</object>
-    <object>objects\BarbwireButton</object>
-    <object>objects\MineButton</object>
-    <object>objects\GunButton</object>
-    <object>objects\FlagButton</object>
-    <object>objects\UndoButton</object>
-    <object>objects\RedoButton</object>
-    <object>objects\EraserButton</object>
-    <object>objects\FinishButton</object>
+    <object>objects\LogoObject</object>
+    <object>objects\TutorialText1</object>
+    <object>objects\Tutorial1Barbwire</object>
+    <object>objects\Tutorail2SelectMine</object>
+    <object>objects\Tutorail3Mine</object>
+    <object>objects\Tutorial4Gun</object>
+    <object>objects\Tutorial5Flag</object>
+    <object>objects\Tutorial6Finish</object>
+    <object>objects\ShroudObject</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\LevelEditor</room>
+    <room>rooms\LogoRoom</room>
+    <room>rooms\MainMenuRoom</room>
+    <room>rooms\PlayerVsPlayerRoom</room>
+    <room>rooms\TutorialRoom</room>
     <room>rooms\LevelEditorRoom</room>
+    <room>rooms\TemplateRoom</room>
   </rooms>
   <constants number="2">
-    <constant name="GM_build_date">41909.245758831</constant>
-    <constant name="GM_version">'1.0.0.0'</constant>
+    <constant name="GM_build_date">41974.0622900116</constant>
+    <constant name="GM_version">'0.1.0.0'</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

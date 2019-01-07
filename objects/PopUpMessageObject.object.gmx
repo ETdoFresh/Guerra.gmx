@@ -56,6 +56,32 @@ IsFading = false;
 
 _alpha = 1;
 MyText = "Placeholder Message!";
+IsCentered = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Destroy Other Instances
+
+with (PopUpMessageObject)
+    if (id != other.id)
+        instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -112,6 +138,33 @@ if (IsFading)
         instance_destroy();
     else
         _alpha = max(0, _alpha - FadeStep);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Center Text
+
+if (IsCentered)
+{
+    x = view_wview[0] / 2 + view_xview[0];
+    y = view_hview[0] / 2 + view_yview[0];
 }
 </string>
           </argument>

@@ -30,22 +30,22 @@
 // Check if Flag Object Exists
 if (!instance_exists(FlagObject))
 {
-    var message = instance_create(room_width/2, room_height/2, PopUpMessageObject);
+    var message = instance_create(view_wview[0] / 2 + view_xview[0], view_hview[0] / 2 + view_yview[0], PopUpMessageObject);
     message.MyText = "Cannot Finish, Flag has not been placed.";
     exit;
 }
 
 // If it does, go ahead!
 
-if (LevelEditorController2._currentTool != LevelEditorController2.DRAWFINISH)
+if (Controller._currentTool != Controller.DRAWFINISH)
 {
-    var message = instance_create(room_width/2, room_height/2, PopUpMessageObject);
+    var message = instance_create(view_wview[0] / 2 + view_xview[0], view_hview[0] / 2 + view_yview[0], PopUpMessageObject);
     message.MyText = "To save your map, you must draw a path to the bridge.";
     message.SolidTime = 3;
 }
 
 event_inherited();
-LevelEditorController2._currentTool = LevelEditorController2.DRAWFINISH;
+Controller._currentTool = Controller.DRAWFINISH;
 
 if (!instance_exists(CursorObject))
 {

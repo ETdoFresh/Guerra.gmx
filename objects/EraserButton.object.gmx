@@ -28,7 +28,7 @@
             <string>/// Change Controller to Eraser on Press
 
 event_inherited();
-LevelEditorController2._currentTool = LevelEditorController2.ERASER;
+Controller._currentTool = Controller.ERASER;
 </string>
           </argument>
         </arguments>

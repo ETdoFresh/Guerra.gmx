@@ -29,7 +29,7 @@
 
 // event_inherited(); // Do not do this. Keep previous selected
 
-with (LevelEditorController2)
+with (Controller)
     event_perform(ev_other, ev_user1);
 </string>
           </argument>

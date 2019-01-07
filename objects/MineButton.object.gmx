@@ -28,7 +28,7 @@
             <string>/// Change Controller to Draw Mine on Press
 
 event_inherited();
-LevelEditorController2._currentTool = LevelEditorController2.DRAWMINE;
+Controller._currentTool = Controller.DRAWMINE;
 </string>
           </argument>
         </arguments>
@@ -51,7 +51,7 @@ LevelEditorController2._currentTool = LevelEditorController2.DRAWMINE;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Draw Mine Button
+            <string>/// Draw Mines Button
 
 event_inherited();
 draw_sprite(RoundRectButtonOverlaySprite, 1, x, y);

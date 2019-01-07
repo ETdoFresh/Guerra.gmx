@@ -28,7 +28,7 @@
             <string>/// Change Controller to Draw Gun on Press
 
 event_inherited();
-LevelEditorController2._currentTool = LevelEditorController2.DRAWGUN;
+Controller._currentTool = Controller.DRAWGUN;
 </string>
           </argument>
         </arguments>

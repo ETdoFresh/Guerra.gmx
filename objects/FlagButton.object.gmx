@@ -28,7 +28,7 @@
             <string>/// Change Controller to Draw Flag on Press
 
 event_inherited();
-LevelEditorController2._currentTool = LevelEditorController2.DRAWFLAG;
+Controller._currentTool = Controller.DRAWFLAG;
 </string>
           </argument>
         </arguments>

@@ -27,14 +27,16 @@
             <kind>1</kind>
             <string>/// Initiate Cursor
 
-image_xscale = 0.6;
-image_yscale = 0.6;
 image_angle = 90;
 
 _isDrawing = false;
 _points = ds_list_create();
 _offsetX = 0;
 _offsetY = 0;
+
+Controller = false;
+if (instance_exists(LevelEditorController2)) Controller = LevelEditorController2;
+else if (instance_exists(TutorialController)) Controller = TutorialController;
 </string>
           </argument>
         </arguments>
@@ -67,13 +69,32 @@ if (_isDrawing)
     
     if (collision_line(x, y, point[0], point[1], FinishRegion, true, true))
     {
-        var message = instance_create(room_width/2, room_height/2, PopUpMessageObject);
+        var message = instance_create(0, 0, PopUpMessageObject);
+        message.IsCentered = true;
         message.MyText = "You finshed! Saving Map...";
         _isDrawing = false;
         instance_create(x, y, MarkDotObject);
-
-        with (FinishButtonObject)
-            event_perform(ev_other, ev_user0);
+        with (PathLineObject) Color = c_black;
+        with (PathLineObject) Color2 = c_black;
+        with (ShroudObject) instance_destroy();
+        
+        if (Controller.object_index == TutorialController)
+            room_goto(MainMenuRoom);
+        
+        if (view_yview[0] == 0)
+        {
+            Controller.TargetViewY = 1080;
+            y += 100;
+        }
+        else
+        {
+            Controller.TargetViewY = 0;
+            y -= 100;
+        }
+        Controller.ScrollTime = 1;
+        with (Controller) event_perform(ev_other, ev_user2);
+        
+        ds_list_clear(_points)
     }
     else if (collision_line(x, y, point[0], point[1], BridgeObject, true, true))
     {
@@ -96,13 +117,15 @@ if (_isDrawing)
             }
         }
         
-        var message = instance_create(room_width/2, room_height/2, PopUpMessageObject);
+        var message = instance_create(0, 0, PopUpMessageObject);
+        message.IsCentered = true;
         message.MyText = "BOOM! Try again!";
         _isDrawing = false;
         instance_create(x, y, MarkDotObject);
+        with (PathLineObject) Color = c_black;
+        with (PathLineObject) Color2 = c_black;
+        with (ShroudObject) instance_destroy();
         
-        with (FinishButtonObject)
-            event_perform(ev_other, ev_user0);
         with (FinishButton)
             event_perform(ev_other, ev_user0);
     }
@@ -114,6 +137,8 @@ if (_isDrawing)
         pathLine.Y1 = point[1];
         pathLine.X2 = x;
         pathLine.Y2 = y;
+        pathLine.Color = c_white;
+        pathLine.Color2 = c_white;
         
         point = 0;
         point[0] = x;
@@ -121,6 +146,32 @@ if (_isDrawing)
         ds_list_add(_points, point);
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Which Hand
+
+if (Controller.RightHanded)
+    image_angle = 90;
+else
+    image_angle = -90;
 </string>
           </argument>
         </arguments>
@@ -182,6 +233,8 @@ if (ds_list_size(_points) == 0)
     point[1] = y;
     ds_list_add(_points, point);
 }
+
+instance_create(0,0, ShroudObject);
 </string>
           </argument>
         </arguments>
